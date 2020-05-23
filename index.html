@@ -9,50 +9,44 @@
 </head>
 <body>
     <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col"></div>
-            <div class="col">
-                <h3>ToDo list VueJs</h3>
-                <div id="app">
-                    <form>
-                        <ol class="pl-0">
-                            <li v-for="(item, index) in todos">
-                                <div class="form-row align-items-center">
-                                    <div class="col-auto">
-                                        <input type="text" 
-                                            class="form-control border-top-0 border-left-0 border-right-0 rounded-0"
-                                            placeholder="Add Task..."
-                                            :class="item.done && item.text !== '' ? 'line-through' : ''"
-                                            v-on:keyup="add(item.id, $event)"
-                                            :disabled="item.done"
-                                            v-model="item.text">
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="custom-control custom-checkbox was-validated">
-                                            <input type="checkbox"
-                                                class="custom-control-input"
-                                                :id="'customControlAutosizing' + item.id"
-                                                v-model="item.done">
-                                            <label class="custom-control-label"
-                                                :for="'customControlAutosizing' + item.id"></label>
-                                        </div>
-                                    </div>
-                                    <div v-if="item.text !== ''" class="col-auto">
-                                        <i v-on:click="move(index, 'up')" class="fas fa-arrow-alt-circle-up"></i>
-                                    </div>
-                                    <div v-if="item.text !== ''" class="col-auto">
-                                        <i v-on:click="move(index, 'down')" class="fas fa-arrow-alt-circle-down"></i>
-                                    </div>
-                                    <div v-if="item.text !== ''" class="col-auto">
-                                        <i v-on:click="remove(index)" class="fas fa-times-circle"></i>
-                                    </div>
+        <h3>ToDo list VueJs</h3>
+        <div id="app">
+            <form>
+                <ol class="pl-0">
+                    <li v-for="(item, index) in todos">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <input type="text" 
+                                    class="form-control border-top-0 border-left-0 border-right-0 rounded-0"
+                                    placeholder="Add Task..."
+                                    :class="item.done && item.text !== '' ? 'line-through' : ''"
+                                    v-on:keyup="add(item.id, $event)"
+                                    :disabled="item.done"
+                                    v-model="item.text">
+                            </div>
+                            <div class="col-auto">
+                                <div class="custom-control custom-checkbox was-validated">
+                                    <input type="checkbox"
+                                        class="custom-control-input"
+                                        :id="'customControlAutosizing' + item.id"
+                                        v-model="item.done">
+                                    <label class="custom-control-label"
+                                        :for="'customControlAutosizing' + item.id"></label>
                                 </div>
-                            </li>
-                        </ol>
-                    </form>
-                </div>
-            </div>
-            <div class="col"></div>
+                            </div>
+                            <div v-if="item.text !== ''" class="col-auto">
+                                <i v-on:click="move(index, 'up')" class="fas fa-arrow-alt-circle-up"></i>
+                            </div>
+                            <div v-if="item.text !== ''" class="col-auto">
+                                <i v-on:click="move(index, 'down')" class="fas fa-arrow-alt-circle-down"></i>
+                            </div>
+                            <div v-if="item.text !== ''" class="col-auto">
+                                <i v-on:click="remove(index)" class="fas fa-times-circle"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </form>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
